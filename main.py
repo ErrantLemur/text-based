@@ -1,4 +1,12 @@
 import tomllib  
+import random
+COMMAND_FAILURES=[
+    "That's ridiculous...",
+    "What? Why?",
+    "Error, brain not found",
+    "Over my dead body",
+    "That's it, you're cut off"
+]
 
 #CLASSES
 class Location:
@@ -62,8 +70,6 @@ command_schema=[
 
 ]
 
-
-
 #COMMAND PARSER
 
 def parse_command(command_list, command_schema):
@@ -80,10 +86,11 @@ def parse_command(command_list, command_schema):
                         extracted_values=[]
                         break
             else:
-                command_found=True
+                #command is found
                 action(extracted_values)
                 break
-    else: print('Command not valid')
+    #no commands are found
+    else: print(COMMAND_FAILURES[random.randint(0,len(COMMAND_FAILURES)-1)])
     
     
 
@@ -98,9 +105,6 @@ while playing:
     command_list=user_input.split(' ')
     print(command_list)
     parse_command(command_list, command_schema)
-    #print(item_dict[user_input].desc)
-
-
 
 
 
