@@ -1,0 +1,40 @@
+Example = - put item in item
+
+dict{put: [Item, "in", Item]} ->
+
+dict{put:[is_item,"in", is_item]}
+
+
+#Test if the schema is met
+
+errorfound=False
+
+if command_list[0]in command_dict and len(command_list)==len(command_dict[command_list[0]]):
+    for c_list, c_dict in zip(command_list[1:],command_dict[command_list[0]]):
+        if callable(c_dict):
+            if c_dict(c_list):
+                errorfound=True
+        else:
+            if cdict != c_list:
+                errorfound=True                
+
+else: print('Why would you try to do that?')
+if errorfound: print("Can't find that item")
+
+
+#Let's think about execution without error checking!
+
+method(obj1)  # Pass obj1 as the self argument
+
+////////////////////////////////////////////
+
+#Try this
+
+dict{'put':{'testschema':[Myclass,'in',MyClass],'functiontoexecute':myfunk}
+}
+
+test if in command list and correct length
+check if each is instance or String
+call the associated function(commandlist)
+
+                     )
