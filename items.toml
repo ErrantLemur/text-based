@@ -1,7 +1,10 @@
 [chest]
-desc = "A beautiful chest"
+description = "A beautiful chest"
 container_size = 0
 
 [wallet]
-desc = "A leather wallet"
+description = "A leather wallet"
 container_size=2
+
+[lightswitch]
+description = "It's a lightswitch"
