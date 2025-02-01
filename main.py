@@ -3,38 +3,7 @@ import random
 import rich
 from funcs import cls, lfds, randgeneralerror
 from valuefile import SPECIFIC_ERRORS
-
-
-
-#CLASSES
-class Location:
-    def __init__(self, title,attributes):
-        self.title=title
-        self.desc = attributes.get("desc", False)
-        self.contains=lfds(attributes,'contains')
-        self.routes=lfds(attributes,'routes')
-
-    def describe(self):
-        printtext="You are in " + self.desc +"\nYou see:\n-"+ "\n-".join( self.contains)+'\n'
-        print(printtext)
-
-    def valid_route(self,route):
-        return route in self.routes
-    
-    def show_routes(self):
-        description="You can see the following routes:\n-" + "\n-".join(self.routes)+'\n'
-        print(description)
-
-
-class Item:
-    def __init__(self, title, attributes):
-        self.title=title
-        self.description = attributes.get("description", False)
-        self.container_size = attributes.get("container_size", 0)
-
-    def describe(self):
-        return self.description
-        
+from classes import Location, Item
 
 #LOAD ITEM AND LOCATION TOMLS INTO DICTIONARIES      
 
@@ -72,7 +41,7 @@ def action_goto(extracted_values,current_room):
         current_room=location_dict[extracted_values[0]]
         return current_room,'roomchange'
     else:
-        return current_room, 'roomerror'
+        return current_room, 'locationerror'
     
     
 
@@ -139,9 +108,7 @@ def debug():
 #GAMELOOP
 cls()
 
-debug_mode=False
-if debug_mode:
-    debug()
+
 #main
 print('welcome to game')
 playing=True
