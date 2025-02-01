@@ -2,5 +2,5 @@
 venv/
 myenv/
 .env/
-_pycache_/
+__pycache_/
 todo
